@@ -1,2 +1,5 @@
 # example database
 example/test.json
+
+# builds
+*.gem
