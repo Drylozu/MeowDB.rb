@@ -1,6 +1,6 @@
-require_relative "structures/error.rb"
-require_relative "structures/hash.rb"
-require_relative "utils.rb"
+require "meowdb/error.rb"
+require "meowdb/hash.rb"
+require "meowdb/utils.rb"
 require "pathname"
 require "json"
 
@@ -19,7 +19,7 @@ class MeowDB
       "name" => name
     }
     @_options["file"] = Pathname.new(@_options["dir"]).join("#{@_options["name"]}.json")
-    @_utils = Utils.new(@_options["file"])
+    @_utils = MeowDBUtils.new(@_options["file"])
 
     if !File.exist?(@_options["file"])
       File.write(@_options["file"], "{}")

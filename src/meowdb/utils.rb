@@ -1,6 +1,6 @@
 require "json"
 
-class Utils
+class MeowDBUtils
   def initialize(file)
     @file = file
   end

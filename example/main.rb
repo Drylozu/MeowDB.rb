@@ -1,6 +1,6 @@
 start = Time.now
 
-require_relative "../src/meowdb.rb"
+require "meowdb"
 db = MeowDB.new(dir: __dir__, name: "test")
 
 puts("Object creation (only if it doesn't exist)")
@@ -38,4 +38,4 @@ puts("Deleting an object")
 object = db.delete("0001")
 puts(object)
 
-puts("MeowDB.rb #{(Time.now - start) * 1000}ms")
+puts("MeowDB.rb: #{(Time.now - start) * 1000}ms")
