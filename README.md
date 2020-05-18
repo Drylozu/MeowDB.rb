@@ -1,7 +1,9 @@
 # MeowDB.rb
-![Version](https://img.shields.io/gem/v/meowdb) ![Downloads](https://img.shields.io/gem/dt/meowdb) ![License](https://img.shields.io/badge/License-MIT-green)
+![MeowDB](https://i.imgur.com/ZN6PLil.png)
 
-"Database" in JSON (Ruby Gem).
+![Downloads](https://img.shields.io/gem/dt/meowdb) ![Repository Size](https://img.shields.io/github/repo-size/Drylotrans/MeowDB.rb) ![License](https://img.shields.io/github/license/Drylotrans/MeowDB.rb) ![Last Commit](https://img.shields.io/github/last-commit/Drylotrans/MeowDB.rb) ![Version](https://img.shields.io/gem/v/meowdb)
+
+Ruby implementation of the _"Database" in JSON ([Node.js library](https://github.com/Drylotrans/MeowDB.js))_!
 
 **Released v1.0.0**.
 
@@ -17,10 +19,10 @@ or
 ```rb
 require "meowdb"
 
-db = MeowDB.new(dir: __dir__, name: "test")
+my_database = MeowDB.new(dir: __dir__, name: "database")
 
 # Object creation (only if it doesn't exist)
-object = db.create("0001", {
+object = my_database.create("0001", {
   "name" => "David",
   "country" => "CO",
   "info" => "Nothing to show"
@@ -28,11 +30,16 @@ object = db.create("0001", {
 puts(object)
 
 # Obtaining an object
-object = db.get("0001")
+object = my_database.get("0001")
+puts(object)
+
+# Modifing an object and saving it
+object["name"] = "Deivid"
+object.save()
 puts(object)
 
 # List of objects
-object = db.all()
+object = my_database.all()
 temp = ""
 object.each do |k, v|
   temp += "   - #{v["name"]} (#{k})\n"
@@ -40,7 +47,7 @@ end
 puts(temp)
 
 # Deleting an object
-object = db.delete("0001")
+object = my_database.delete("0001")
 puts(object)
 
 # Average time of execution: 41.5ms.
