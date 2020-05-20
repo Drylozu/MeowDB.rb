@@ -1,5 +1,5 @@
 # MeowDB.rb
-![MeowDB](https://i.imgur.com/ZN6PLil.png)
+![MeowDB](https://i.imgur.com/cC7AZ18.png)
 
 ![Downloads](https://img.shields.io/gem/dt/meowdb) ![Repository Size](https://img.shields.io/github/repo-size/Drylotrans/MeowDB.rb) ![License](https://img.shields.io/github/license/Drylotrans/MeowDB.rb) ![Last Commit](https://img.shields.io/github/last-commit/Drylotrans/MeowDB.rb) ![Version](https://img.shields.io/gem/v/meowdb)
 
@@ -33,10 +33,14 @@ puts(object)
 object = my_database.get("0001")
 puts(object)
 
-# Modifing an object and saving it
+# Modifying an object and saving it
 object["name"] = "Deivid"
 object.save()
 puts(object)
+
+# Setting directly the value of an element
+object = my_databse.set("0001.info", "Just a person")
+puts (object)
 
 # List of objects
 object = my_database.all()
