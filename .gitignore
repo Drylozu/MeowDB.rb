@@ -2,4 +2,4 @@
 example/test.json
 
 # builds
-*.gem
+build/

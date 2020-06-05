@@ -1,6 +1,6 @@
-require "meowdb/error.rb"
-require "meowdb/hash.rb"
-require "meowdb/utils.rb"
+meowdb_files = File.expand_path(__dir__, '/meowdb')
+Dir[File.join(meowdb_files, '*.rb')].each { |f| require f }
+
 require "pathname"
 require "json"
 
@@ -31,35 +31,35 @@ class MeowDB
   end
   
   def create(id, initial_value)
-    return MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
-    return MeowDBError.new("The value must be a string, number, hash, boolean, array or a nil") if !@_utils.valid_value?(id)
+    raise MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
+    raise MeowDBError.new("The value must be a string, number, hash, boolean, array or a nil") if !@_utils.valid_value?(id)
     return @_utils.get(id) if @_utils.get(id)
     object = @_utils.set(id, initial_value, true)
     return object.is_a?(Hash) ? object.merge!(__id: id) : object
   end
 
   def delete(id)
-    return MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
+    raise MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
     tmp_data = @_utils.get(id)
-    return MeowDBError.new("That element doesn't exists in the database") if !tmp_data
+    raise MeowDBError.new("That element doesn't exists in the database") if !tmp_data
     @_utils.set(id, nil, false)
     return tmp_data.is_a?(Hash) ? tmp_data.merge!(__id: id) : tmp_data
   end
 
   def exist?(id)
-    return MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
+    raise MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
     return true if @_utils.get(id)
     return false
   end
 
   def get(id)
-    return MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
+    raise MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
     data = @_utils.get(id)
     return data.is_a?(Hash) ? MeowDBHash.new(data, id, @_options["file"]) : data
   end
 
   def set(id, value)
-    return MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
+    raise MeowDBError.new("The ID must only include letters, numbers, underscores and dots") if !@_utils.valid_id?(id)
     return MeowDBError.new("The value must be a string, number, hash, boolean, array or a nil") if !@_utils.valid_value?(value)
     return @_utils.set(id, value, false)
   end
