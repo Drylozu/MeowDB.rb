@@ -1,9 +1,9 @@
 # MeowDB.rb
 ![MeowDB](https://i.imgur.com/cC7AZ18.png)
 
-![Downloads](https://img.shields.io/gem/dt/meowdb) ![Repository Size](https://img.shields.io/github/repo-size/Drylotrans/MeowDB.rb) ![License](https://img.shields.io/github/license/Drylotrans/MeowDB.rb) ![Last Commit](https://img.shields.io/github/last-commit/Drylotrans/MeowDB.rb) ![Version](https://img.shields.io/gem/v/meowdb)
+![Downloads](https://img.shields.io/gem/dt/meowdb) ![Repository Size](https://img.shields.io/github/repo-size/Drylozu/MeowDB.rb) ![License](https://img.shields.io/github/license/Drylozu/MeowDB.rb) ![Last Commit](https://img.shields.io/github/last-commit/Drylozu/MeowDB.rb) ![Version](https://img.shields.io/gem/v/meowdb)
 
-Ruby implementation of the _"Database" in JSON ([Node.js library](https://github.com/Drylotrans/MeowDB.js))_!
+Ruby implementation of the _"Database" in JSON ([Node.js library](https://github.com/Drylozu/MeowDB.js))_!
 
 **Released v1.0.1**.
 
